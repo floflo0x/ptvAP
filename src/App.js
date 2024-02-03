@@ -7,6 +7,8 @@ import Faq from './pages/Faq';
 import AddFaq from './pages/AddFaq';
 import UsersDonation from './pages/UsersDonation';
 import Protected from './pages/Protected';
+import Plans from './pages/Plans';
+import AddPlan from './pages/AddPlan';
 
 const App = () => {
 	return (
@@ -17,7 +19,9 @@ const App = () => {
 				<Route exact path="/donations" element={<Protected Component={Donations} />}></Route>
 				<Route exact path="/faq" element={<Protected Component={Faq} />}></Route>
 				<Route exact path="/addFaq/*" element={<Protected Component={AddFaq} />}></Route>
+				<Route exact path="/plan" element={<Protected Component={Plans} />}></Route>
 				<Route exact path="/userDonation/*" element={<Protected Component={UsersDonation} />}></Route>
+				<Route exact path="/addPlan/*" element={<Protected Component={AddPlan} />}></Route>
 			</Routes>
 		</div>
 	);

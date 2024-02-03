@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from './Navbar';
 
-function Donations() {
-	const [ faqs, setFaqs ] = useState([]);
+function Plans() {
+	const [ plan, setPlan ] = useState([]);
 
 	useEffect(() => {
 		async function fetchData() {
-			const response = await axios.get(`https://mateys.xyz/web_api/admin/getFaq.php`, {
+			const response = await axios.get(`https://mateys.xyz/web_api/admin/getPlans.php`, {
 		        headers: {
           			'accept': 'application/json', // Set the content type for FormData
         		},
@@ -16,8 +16,8 @@ function Donations() {
 
 		    const data = response.data;
 
-		    // console.log(data);
-		   	setFaqs(data);
+		    // console.log(data.length);
+		   	setPlan(data);
 		}
 
 		fetchData();
@@ -29,7 +29,7 @@ function Donations() {
 		const formData = new FormData();
 	    formData.append('id', id);
 
-		const response = await axios.post(`https://mateys.xyz/web_api/admin/deleteFaq.php`, formData, {
+		const response = await axios.post(`https://mateys.xyz/web_api/admin/deletePlan.php`, formData, {
 		    headers: {
           		'Content-Type': 'multipart/form-data', // Set the content type for FormData
         	},
@@ -43,13 +43,14 @@ function Donations() {
 	return (
 		<div className="container-fluid mt-5">
 			<div className="row">
+
 				<Navbar />
 
 				<div className="col-12 col-sm-12 col-md-12 p-5 border-0" style={{ borderRadius: '10px' }}>
-					<div className="col-12 col-sm-12 col-md-12 text-center mb-5">
-						<h3>FAQs</h3>
+					<div className="col-12 col-sm-12 col-md-12 text-center mb-5 border-0">
+						<h3>PLANS</h3>
 						<div className="border-0 text-end">
-							<Link to="/addFaq" className="btn pt-2 pb-2 pe-4 ps-4 bg-dark text-white">Add FAQs</Link>
+							<Link to="/addPlan" className="btn pt-2 pb-2 pe-4 ps-4 bg-dark text-white">Add Plans</Link>
 						</div>
 					</div>
 
@@ -57,20 +58,22 @@ function Donations() {
 						<thead className="table-dark">
 						    <tr>
 						      <th scope="col">#</th>
-						      <th scope="col">Question</th>
-						      <th scope="col">Answer</th>
+						      <th scope="col">Name</th>
+						      <th scope="col">Duration</th>
+						      <th scope="col">Amount</th>
 						      <th scope="col">More</th>
 						    </tr>
   						</thead>
   						<tbody>
-  							{faqs && faqs.map((i, index) => (
+  							{plan && plan.map((i, index) => (
   								<tr key={index}>
 							      <th scope="row">{i.id}</th>
-							      <td>{i.question}</td>
-							      <td>{i.answer}</td>
+							      <td>{i.name}</td>
+							      <td>{i.duration}</td>
+							      <td>{i.amount}</td>
 							      <td> 
 							      	<div className="d-flex align-items-center border-0 justify-content-evenly">
-							      	<Link to={`/addFaq/?id=${i.id}`}>
+							      	<Link to={`/addPlan/?id=${i.id}`}>
 							      		<i className="fa-solid fa-pen-to-square" style={{ color: '#06cb13' }}></i>
 							      	</Link>
 							      	<button className="btn border-0 bg-transparent" onClick={() => deleteClickHandler(i.id)}>
@@ -78,16 +81,16 @@ function Donations() {
 							      	</button>
 							      	</div>
 							      </td>
-							    </tr>
-  							))}
+						    	</tr>
+						    ))}
                         </tbody>
 					</table>
 				</div>
 
-				<div className="col-12 col-sm-12"></div>
+				<div className="col-12 col-sm-12" style={{ height: '100px' }}></div>
 			</div>
 		</div>
 	);
 }
 
-export default Donations;
+export default Plans;
