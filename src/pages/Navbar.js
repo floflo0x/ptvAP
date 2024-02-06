@@ -22,6 +22,7 @@ function Navbar() {
 		                <Link to="/donations" className="nav__link">Donations</Link>
 		                <Link to="/faq" className="nav__link">FAQ</Link>
 		                <Link to="/plan" className="nav__link">Plans</Link>
+		                <Link to="/videos" className="nav__link">Videos</Link>
 		                <button className="nav__link border-0 bg-transparent" onClick={logoutClickHandler}>Logout</button>
 		            </div>
             	</div>
