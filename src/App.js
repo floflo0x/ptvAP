@@ -10,6 +10,7 @@ import Protected from './pages/Protected';
 import Plans from './pages/Plans';
 import AddPlan from './pages/AddPlan';
 import Videos from './pages/Videos';
+import AddVideos from './pages/AddVideos';
 
 const App = () => {
 	return (
@@ -24,6 +25,7 @@ const App = () => {
 				<Route exact path="/userDonation/*" element={<Protected Component={UsersDonation} />}></Route>
 				<Route exact path="/videos" element={<Protected Component={Videos} />}></Route>
 				<Route exact path="/addPlan/*" element={<Protected Component={AddPlan} />}></Route>
+				<Route exact path="/addVideo" element={<Protected Component={AddVideos} />}></Route>
 			</Routes>
 		</div>
 	);

@@ -6,7 +6,7 @@ function Navbar() {
 	const navigate = useNavigate();
 
 	const logoutClickHandler = () => {
-		Cookies.remove('isLoggedIn');
+		Cookies.remove('logIn');
 		navigate("/");
 	}
 

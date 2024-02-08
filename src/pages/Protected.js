@@ -7,7 +7,7 @@ function Protected(props) {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		const isLoggedIn = Cookies.get('isLoggedIn');
+		const isLoggedIn = Cookies.get('logIn');
 
 		// console.log(isLoggedIn);
 

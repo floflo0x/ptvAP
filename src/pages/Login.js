@@ -40,7 +40,7 @@ function Login() {
 		// console.log(response.data.isSuccess);
 
 		if (response.data.isSuccess) {
-			Cookies.set('isLoggedIn', true);
+			Cookies.set('logIn', true);
 			navigate('/users');
 		}
 

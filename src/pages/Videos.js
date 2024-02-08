@@ -49,7 +49,7 @@ function Videos() {
 					<div className="col-12 col-sm-12 col-md-12 text-center mb-5">
 						<h3>USERS</h3>
 						<div className="border-0 text-end">
-							<Link to="/addFaq" className="btn pt-2 pb-2 pe-4 ps-4 bg-dark text-white">Add Videos</Link>
+							<Link to="/addVideo" className="btn pt-2 pb-2 pe-4 ps-4 bg-dark text-white">Add Videos</Link>
 						</div>
 					</div>
 
@@ -77,7 +77,7 @@ function Videos() {
 							      <td>{i.skip_duration}</td>
 							      <td> 
 							      	<div className="d-flex align-items-center border-0 justify-content-evenly">
-							      	<Link to="#">
+							      	<Link to={`/addVideo/?id=${i.id}`}>
 							      		<i className="fa-solid fa-pen-to-square" style={{ color: '#06cb13' }}></i>
 							      	</Link>
 							      	<button className="btn border-0 bg-transparent" onClick={() => deleteClickHandler(i.id)}>
